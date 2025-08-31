@@ -1,0 +1,97 @@
+/* ===============================
+   Mateshwari Events — Services.css
+   Skin / Light Yellow + Gold Theme
+   =============================== */
+
+.services-container {
+  max-width: 1100px;
+  margin: 80px auto;
+  padding: 40px;
+  background: linear-gradient(180deg, #fff8e1, #faedc4); /* Skin yellow gradient */
+  border-radius: 20px;
+  text-align: center;
+  border: 2px solid #f0e6c9; /* subtle border */
+  box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+}
+
+.services-header h1 {
+  font-size: 3rem;
+  color: #d4af37; /* Gold */
+  margin-bottom: 10px;
+  text-transform: uppercase;
+}
+.services-header .divider {
+  width: 100px;
+  height: 5px;
+  margin: 0 auto 30px;
+  background: #d4af37; /* Gold divider */
+  border-radius: 3px;
+}
+.services-header h2 {
+  font-size: 2rem;
+  color: #7a4522; /* warm brown */
+  margin-bottom: 20px;
+}
+.services-header p {
+  font-size: 1.2rem;
+  margin-bottom: 40px;
+  color: #6b4a2f;
+}
+
+.services-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px,1fr));
+  gap: 30px;
+}
+
+.service-card {
+  background: #fffdf6; /* light ivory */
+  border-radius: 20px;
+  padding: 30px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.12);
+  border: 1px solid rgba(212,175,55,0.3); /* soft gold border */
+  transition: transform .3s ease, box-shadow .3s ease;
+}
+.service-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.18);
+}
+
+.service-icon {
+  font-size: 3rem;
+  margin-bottom: 15px;
+  color: #d4af37; /* gold icons */
+}
+.service-title {
+  font-size: 1.6rem;
+  color: #7a4522;
+  margin-bottom: 8px;
+}
+.service-tagline {
+  font-style: italic;
+  margin-bottom: 10px;
+  color:#d4af37; /* gold accent */
+}
+.service-description {
+  font-size: 1rem;
+  color:#5a3d27;
+  line-height: 1.6;
+}
+
+.cta-wrapper { margin-top: 40px; }
+.cta-button {
+  background:#d4af37; 
+  color:#fff; 
+  padding:12px 40px; 
+  border:none;
+  border-radius:30px; 
+  font-size:1.1rem; 
+  cursor:pointer;
+  font-weight: 600;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.12);
+  transition: background 0.3s ease, transform 0.3s ease;
+}
+.cta-button:hover { 
+  background:#b68f2a; 
+  transform: translateY(-3px);
+}
