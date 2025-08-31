@@ -1,7 +1,7 @@
 /* ===============================
    Mateshwari Events — Gallery.css
    Skin / Light Yellow + Gold Theme
-   (Desktop: 3-in-a-row, Mobile: 2-in-a-row)
+   (Desktop: 3-in-a-row, Mobile: 1 or 2-in-a-row)
    With Lightbox (mobile fullscreen fix)
    =============================== */
 
@@ -92,18 +92,34 @@
 }
 .gallery-item:hover::after{ opacity:1; transform:rotate(18deg) translateX(35%) }
 
-/* ===== MOBILE/TABLET: 2 columns ===== */
+/* ===== RESPONSIVE GRID ===== */
+
+/* Tablets: 2 columns */
 @media (max-width: 900px){
-  .gallery-grid{ grid-template-columns: repeat(2, 1fr); gap:12px; }
-  .gallery-item{ aspect-ratio: 1 / 1; }
-  .gallery-item img{ aspect-ratio: 1 / 1; }
+  .gallery-grid{ grid-template-columns: repeat(2, 1fr); gap:14px; }
+  .gallery-item{ aspect-ratio: 4 / 3; }
+  .gallery-item img{ aspect-ratio: 4 / 3; }
 }
 
-/* ===== LIGHTBOX (base) ===== */
+/* Phones: 1 column (full-width images) */
+@media (max-width: 540px){
+  .gallery .container{ padding:0 10px; }
+  .gallery-grid{ grid-template-columns:1fr; gap:14px; }
+  .gallery-item{ aspect-ratio: 4 / 3; border-radius:16px; }
+  .gallery-item img{ aspect-ratio: 4 / 3; }
+}
+
+/* Very small phones */
+@media (max-width: 380px){
+  .gallery .container{ padding:0 6px; }
+  .gallery-grid{ gap:12px; }
+}
+
+/* ===== LIGHTBOX ===== */
 .lightbox{
   position:fixed; inset:0;
   display:flex; align-items:center; justify-content:center;
-  padding:24px; z-index:1000;         /* high z */
+  padding:24px; z-index:1000;
   background:rgba(0,0,0,.75);
   opacity:0; visibility:hidden; pointer-events:none;
   transition:opacity .25s ease, visibility .25s ease;
@@ -111,10 +127,8 @@
 .lightbox:target{
   opacity:1; visibility:visible; pointer-events:auto;
 }
-/* Prevent background scroll when open (works with class toggle if used) */
 body.lightbox-open{ overflow:hidden; }
 
-/* Image in lightbox (desktop defaults) */
 .lightbox img{
   max-width:min(1200px,94vw);
   max-height:90vh;
@@ -136,22 +150,19 @@ body.lightbox-open{ overflow:hidden; }
 }
 .lightbox:hover::after{ background:rgba(255,255,255,.55) }
 
-/* optional nav zones (click areas) */
+/* optional nav zones */
 .lightbox .nav-prev, .lightbox .nav-next{
   position:absolute; top:0; bottom:0; width:35%;
 }
 .lightbox .nav-prev{ left:0 }
 .lightbox .nav-next{ right:0 }
 
-/* ===== MOBILE LIGHTBOX — TRUE FULLSCREEN ===== */
+/* ===== MOBILE LIGHTBOX — FULLSCREEN ===== */
 @media (max-width: 768px){
-  /* Remove paddings & make overlay darker */
   .lightbox{
     padding:0 !important;
     background:rgba(0,0,0,.95);
   }
-
-  /* FORCE the image to fill the viewport */
   .lightbox img{
     width:100vw !important;
     height:100vh !important;
@@ -160,12 +171,10 @@ body.lightbox-open{ overflow:hidden; }
     border:0 !important;
     border-radius:0 !important;
     box-shadow:none !important;
-    object-fit:contain !important;   /* no stretch */
+    object-fit:contain !important;
     aspect-ratio:auto !important;
     background:#000 !important;
   }
-
-  /* Keep close button visible & fixed */
   .lightbox::after{
     position:fixed !important;
     top:12px !important; right:12px !important;
@@ -174,7 +183,7 @@ body.lightbox-open{ overflow:hidden; }
   }
 }
 
-/* ===== EXTRA: very small phones (<=360px) ===== */
+/* Very small phones lightbox */
 @media (max-width: 360px){
   .lightbox::after{
     top:8px !important; right:8px !important;
